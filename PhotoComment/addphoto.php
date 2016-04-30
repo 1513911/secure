@@ -46,13 +46,13 @@ if(isset($_POST["submit"]))
     $title = stripslashes( $title );
     $title=mysqli_real_escape_string($db,$title);
     $title = htmlspecialchars( $title );
-    $title=xssafe($title);
+   // $title=xssafe($title);
 
     //clean input description
     $desc = stripslashes( $desc );
     $desc=mysqli_real_escape_string($db,$desc);
     $desc = htmlspecialchars( $desc );
-    $desc=xssafe($desc);
+    //$desc=xssafe($desc);
 
     //check for file upload error
     if($_FILES['fileToUpload']['error'] == 0) {
