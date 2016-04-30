@@ -28,7 +28,7 @@ if(isset($_POST["submit"]))
     $photoID = $_POST["photoID"];
     $name = $_SESSION["username"];
 
-    //clean input description
+    //clean input description from sql injection and xss attack
     $desc = stripslashes( $desc );
     $desc=mysqli_real_escape_string($db,$desc);
     $desc = htmlspecialchars( $desc );
