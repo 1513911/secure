@@ -25,7 +25,7 @@ if(isset($_POST["submit"]))
 
 
 
-        //implement prepared statement to take of sql injection and other vulnerabilities
+        //implement prepared statement to take care of sql injection and other vulnerabilities
 
         //declare instance of connection
         $sqlcon=new mysqli(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
@@ -47,8 +47,8 @@ if(isset($_POST["submit"]))
         {
             $_SESSION['username'] = $username; // Initializing Session
             $_SESSION["userid"] = $row[0];//user id assigned to session global variable
-            $_SESSION["timeout"] = time();//get session time
-            $_SESSION["ip"] = $_SERVER['REMOTE_ADDR'];//get session time
+            $_SESSION["timeout"] = time();//get session time: protects against session highjacking by logging off users or preventing users from access in time frame
+            $_SESSION["ip"] = $_SERVER['REMOTE_ADDR'];// session highjacking:on login, the
 
             header("location: photos.php"); // Redirecting To Other Page
         }else
