@@ -54,7 +54,7 @@ if(isset($_POST["submit"]))
 
         //call procedure
         if (! $mysqli->query("CALL addComments('$desc','$photoID','$userID')"))  {
-            echo "Procedure Call Failed:";
+            echo "Procedure Call Failed: (.".$mysqli->errno.")".$mysqli->error ;
 
         }else{
 
